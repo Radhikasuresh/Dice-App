@@ -25,7 +25,9 @@ const GamePlay = () => {
     }
 
     const randomNumber = generateRandomNumber(1, 7);
+    console.log(randomNumber);
     setCurrentDice((prev) => randomNumber);
+
     if (selectedNumber === randomNumber) {
       setScore((prev) => prev + randomNumber);
     } else {
@@ -54,8 +56,9 @@ const GamePlay = () => {
       />
       <div className="buttons">
         <OutlineButton onClick={resetScore}>Reset-Score</OutlineButton>
+
         <Button onClick={() => setShowRules((prev) => !prev)}>
-          {showRules ? "Hide" : "Show"}
+          {showRules ? "Hide" : "Show-Rules"}
         </Button>
       </div>
       {showRules && <Rules />}
@@ -75,11 +78,9 @@ const MainCointainer = styled.main`
   .buttons {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    max-width: 220px;
     align-items: center;
     gap: 10px;
-    margin-left: 575px;
+    margin-top: 20px;
   }
 `;
 const Button = styled.button`
